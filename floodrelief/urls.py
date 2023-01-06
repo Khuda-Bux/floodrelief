@@ -1,0 +1,36 @@
+"""floodrelief URL Configuration
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/4.0/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin
+from django.urls import path,include
+from django.conf import settings
+from django.conf.urls.static import static
+from myapp import views
+
+from django.contrib.auth.decorators import login_required
+
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('accounts/',include('django.contrib.auth.urls')),
+    path('',views.ReliefCreateView.as_view(),name='profile'),
+    path('thanx/',views.ReliefTemplateView.as_view(),name='thanx'),
+    path('list/',views.ReliefListView.as_view(),name='list'),
+    path('update/<int:pk>',views.ReliefUpdateView.as_view(),name='update'),
+    path('updatethanx/',views.TemplateUpdateView.as_view(),name='updatethanx'),
+    path('delete/<int:pk>',views.ReliefDeleteView.as_view(),name='delete'),
+
+
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

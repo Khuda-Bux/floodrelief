@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flood-Survey</title>
+   
+    <link rel="stylesheet" href="{% static 'myapp/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'myapp/css/bootstrap.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'myapp/css/core.css' %}">
+    <link rel="stylesheet" href="{% static 'myapp/css/style.css' %}">
+    
+</head>
+<body>
+  <div class="container-flud aqsa">
+  <div class="container-flud abc">
+   <div class="row">
+    <div class="col-sm-10">  <h1 class="text-center">Flood Relief Registration Survey</h1>
+    </div>
+   <div  class="col-sm-2"> <a   class="btn btn-primary" href ="{% url 'login' %}">Login Button</a></div> 
+   </div>
+   </div>
+<div class="container"><img src="{% static 'myapp/images/sindhi.jpg' %}" alt="" 
+  width="1300px" height="500px" >
+ </div>
+  <br><div class="container"><form action="" method="Post"  enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input class="btn btn-primary" type="submit" value="Submit Form">
+  </form>
+</div>
+</div>
+</div>
+
+
+
+
+
+    <script src="{% static 'myapp/js/jquery.js'%}"></script>
+    <script src="{% static 'myapp/js/popper.js'%}"></script>
+    <script src="{% static 'myapp/js/bootstrap.js'%}"></script>
+    <script src="{% static 'myapp/js/all.min.js'%}"></script>
+    </body>    
+</body>
+</html>

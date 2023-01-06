@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List-View</title>
+    <link rel="stylesheet" href="{% static 'myapp/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'myapp/css/bootstrap.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'myapp/css/core.css' %}">
+    <link rel="stylesheet" href="{% static 'myapp/css/style.css' %}">
+</head>
+
+
+<div class="container-flud abcde">
+  <div class="row">
+ <div class="col-sm-11"><h1 class="text-center">Only For Stop Page CRUD Function</h1></div>
+ <div class="col-sm-1"><a class="btn btn-primary" href="{% url 'password_change' %}">Reset Password</a> 
+ </tr></div>
+  </div>
+</div>
+<div class="container">
+   <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Nic</th>
+        <th scope="col">District</th>
+        <th scope="col">Tehsil</th>
+        <th scope="col">UC</th>
+        <th scope="col">Mobile Number</th>
+        <th scope="col">Photo</th>
+        <th scope="col">Date</th>
+        <th scope="col">Photo</th>
+        
+    </thead>
+    <tbody>
+   {% for relief in relief_list %}
+   <tr>
+   <th scope="row">{{relief.id}}</th>
+   <td> {{relief.name}}</td>
+   <td>{{relief.nic}}</td>
+   <td> {{relief.district}}</td>
+   <td> {{relief.tehsil}}</td> 
+   <td> {{relief.uc}}</td>
+   <td> {{relief.mobile_number}}</td>
+   <td>{{relief.photo}}</td> 
+   <td>{{relief.date}} </td> 
+   <td><image src="{{relief.photo.url}}" alt="" class="card-img-right" height="50px"></td>
+    <td><a class="btn btn-success" href="{% url 'update' relief.pk  %}">Update</a></td>
+   <td> <a class="btn btn-danger" href="{% url 'delete' relief.pk  %}">Delete</a></td>
+   
+    {% endfor %} 
+
+
+ 
+    </div>
+</body>
+</html>
